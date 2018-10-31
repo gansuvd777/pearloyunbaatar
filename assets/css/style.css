@@ -30,6 +30,8 @@
 }
 #about{
     padding: 30px;
+    line-height: 30px;
+    word-spacing: 6px;
 }
 /* project */
 .gallery {
