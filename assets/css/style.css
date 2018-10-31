@@ -1,12 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+.container{
+   font-family: 'Merriweather', serif;
+}
 .img-thumbnail{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: 1s;
 }
 .img-thumbnail:hover{
     content: url(../images/cehd.jpg);
     /* height: 200px; */
     /* transform: scale(1.1); */
 }
+.jumbotron{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar, #about {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.nav-item:hover{
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#contact{
+    color: red;
+}
 #about{
-    padding: 10px;
+    padding: 30px;
+}
+/* project */
+.gallery {
+	width: 400px;
+	height: 250px;
+	padding: 15px;
+	position: relative;
+	border: 1px solid #dddddd;
+    border-radius: 4px;
+	opacity: 0.7;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.gallery:hover{
+    opacity: 1;
+    transform: scale(1.1);
+    transition: all 2s;
+}
+.overlay {
+    position: absolute; 
+	bottom: 25px; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 370px;
+    transition: .5s ease;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    left: 45px;
+    text-align: center;  
+    border-radius: 5px;  
+}
+/* Quote box*/
+#factButton:hover{
+	background-color: #48739B;
+}
+/* Contact page */
+
+#maincontent {
+	background-color: white;
+	color: #2A4259;
+	height: auto;
+	margin: 6px 20px 20px;
+	border-radius: 15px;
+    font-family: 'Noto Serif', serif;
+    padding-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#content {
+	position: relative;
+}
+/* Footer social icon */
+.list-inline-item:hover{
+    transform: scale(1.1);
+    transition: 2s;
 }
