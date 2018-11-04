@@ -22,8 +22,23 @@ var config = {
   firebase.initializeApp(config);
 
 var database = firebase.database();
+// $('#submit').on("click",function() 
+// {
+//     console.log("empty submission");
+//     event.preventDefault();
+//     if ($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#message").val()) === "") {
+//         alert('Please fill the boxes before submit!!!');
+//     return false;
+//     }
+// });
 
 $("#submit").on("click", function(event) {
+  console.log("empty submission");
+    event.preventDefault();
+    if ($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#message").val()) === "") {
+        alert('Please fill the boxes before submit!!!');
+    return false;
+    }
   console.log("you clicked submit");
   event.preventDefault();
   var name = $("#name")
@@ -51,6 +66,7 @@ $("#submit").on("click", function(event) {
   $("#email").val("");
   $("#message").val("");
 });
+
 
 // $(document).ready(function(){
 //     $(".img-thumbnail").mouserover(function(){
