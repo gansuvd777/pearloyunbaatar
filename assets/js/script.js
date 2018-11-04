@@ -34,13 +34,14 @@ var database = firebase.database();
 
 $("#submit").on("click", function(event) {
   console.log("empty submission");
-    event.preventDefault();
+    // event.preventDefault();
     if ($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#message").val()) === "") {
         alert('Please fill the boxes before submit!!!');
     return false;
     }
   console.log("you clicked submit");
   event.preventDefault();
+  alert("Thank you!");
   var name = $("#name")
     .val()
     .trim();
@@ -58,6 +59,7 @@ $("#submit").on("click", function(event) {
   console.log(newContact);
 
   database.ref().push(newContact);
+  
   console.log(newContact.name);
   console.log(newContact.email);
   console.log(newContact.message);
