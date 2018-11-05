@@ -9,6 +9,26 @@ $("#factButton").on("click", function() {
 // This array holds all of Mariah's quotes!
 var mariahQuoteArray = ["'Learn to be quiet enough to hear the genuine within yourself so that you can hear it in others'", "'Don't feel entitled to anything you didn't sweat and struggle for'", "'If things are too easy, life is a whole lot less interesting'", "You're not obligated to win. You're obligated to keep trying to do the best you can every day."]
 
+$('#get-another-quote-button').on('click', function(e) {
+  e.preventDefault();
+  $.ajax({
+    url: '/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+    success:function(data) {
+      var post = data.shift(); // The data is an array of posts. Grab the first one.
+      $('#quote-title').text(post.title);
+      $('#quote-content').html(post.content);
+
+      // If the Source is available, use it. Otherwise hide it.
+      if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
+        $('#quote-source').html('Source:' + post.custom_meta.Source);
+      } else {
+        $('#quote-source').text('');
+      }
+    },
+    cache: false
+  });
+});
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDUB-tglFxCYsEiSmErxQPKjY72G8ILTUE",
@@ -22,17 +42,27 @@ var config = {
   firebase.initializeApp(config);
 
 var database = firebase.database();
-// $('#submit').on("click",function() 
-// {
-//     console.log("empty submission");
-//     event.preventDefault();
-//     if ($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#message").val()) === "") {
-//         alert('Please fill the boxes before submit!!!');
-//     return false;
-//     }
-// });
+
+
 
 $("#submit").on("click", function(event) {
+  // var validations ={
+  //   email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address']
+  // };
+  //   // Check all the input fields of type email. This function will handle all the email addresses validations
+  //   $("input[type=email]").change( function(){
+  //       // Set the regular expression to validate the email 
+  //       validation = new RegExp(validations['email'][0]);
+  //       // validate the email value against the regular expression
+  //       if (!validation.test(this.value)){
+  //           // If the validation fails then we show the custom error message
+  //           this.setCustomValidity(validations['email'][1]);
+  //           return false;
+  //       } else {
+  //           // This is really important. If the validation is successful you need to reset the custom error message
+  //           this.setCustomValidity('');
+  //       }
+  //   });
   console.log("empty submission");
     // event.preventDefault();
     if ($.trim($("#name").val()) === "" || $.trim($("#email").val()) === "" || $.trim($("#message").val()) === "") {
