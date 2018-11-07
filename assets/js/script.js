@@ -9,23 +9,17 @@ $("#factButton").on("click", function() {
 // This array holds all of Mariah's quotes!
 var mariahQuoteArray = ["'Learn to be quiet enough to hear the genuine within yourself so that you can hear it in others'", "'Don't feel entitled to anything you didn't sweat and struggle for'", "'If things are too easy, life is a whole lot less interesting'", "You're not obligated to win. You're obligated to keep trying to do the best you can every day."]
 
-$('#get-another-quote-button').on('click', function(e) {
-  e.preventDefault();
-  $.ajax({
-    url: '/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-    success:function(data) {
-      var post = data.shift(); // The data is an array of posts. Grab the first one.
-      $('#quote-title').text(post.title);
-      $('#quote-content').html(post.content);
+$("#getQuote").on("click", function(){
+    var quoteUrl = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=';
 
-      // If the Source is available, use it. Otherwise hide it.
-      if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
-        $('#quote-source').html('Source:' + post.custom_meta.Source);
-      } else {
-        $('#quote-source').text('');
-      }
-    },
-    cache: false
+  $.ajaxSetup({
+    dataType: "json",
+    url: quoteUrl,
+    cache:false,
+  });
+
+  $.getJSON( quoteUrl, function(data) {
+    $(".message").html(data[0].content + " - " + data[0].title)
   });
 });
 
