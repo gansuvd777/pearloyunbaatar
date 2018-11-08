@@ -18,7 +18,7 @@ $("#factButton").on("click", function() {
     cache:false,
   });
   $.getJSON( quoteUrl, function(data) {
-    $("#factText").text(data[0].content + " --- " + data[0].title)
+    $("#factText").html(data[0].content + " --- " + data[0].title)
   });
 });
 
