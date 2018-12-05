@@ -82,7 +82,7 @@ body {
   }
   
   /* New Task */
-  label[for='new-task'] {
+  /* label[for='new-task'] {
     display: block;
     margin: 0 0 20px;
   }
@@ -92,10 +92,10 @@ body {
   }
   p > button:hover {
     color: #0FC57C;
-  }
+  } */
   
   /* Task list */
-  li {
+  /* li {
     overflow: hidden;
     padding: 20px 0;
     border-bottom: 1px solid #eee;
@@ -116,16 +116,16 @@ body {
   }
   li > .delete:hover {
     color: #CF2323;
-  }
+  } */
   
   /* Completed */
-  #completed-tasks label {
+  /* #completed-tasks label {
     text-decoration: line-through;
     color: #888;
-  }
+  } */
   
   /* Edit Task */
-  ul li input[type=text] {
+  /* ul li input[type=text] {
     display:none;
   }
   
@@ -135,4 +135,4 @@ body {
   
   ul li.editMode label {
     display:none;
-  }
+  } */
